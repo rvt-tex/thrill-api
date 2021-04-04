@@ -14,7 +14,7 @@ class ClientsController < ApplicationController
         client = Client.new(client_params)
         if client.save 
             render json: client
-            # render json: ShipperSerializer.new(shipper)
+            # render json: ClientSerializer.new(shipper)
         else 
             render json: {errors: client.errors.full_messages}, status: :unprocessible_entity
         end 
@@ -25,7 +25,7 @@ class ClientsController < ApplicationController
         if client.destroy
             clients = Client.all 
             render json: clients
-            # render json: ShipperSerializer.new(clients)
+            # render json: ClientSerializer.new(clients)
         else
             render json: { message: "error"}  
         end 

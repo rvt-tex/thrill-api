@@ -3,7 +3,7 @@ class ReservationsController < ApplicationController
     def index
         reservations = Reservation.all 
         render json: reservations
-        # render json: FreightQuoteSerializer.new(reservations)
+        # render json: ReservationSerializer.new(reservations)
     end 
 
     def show 
@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
         reservation = Reservation.new(reservation_params)
         if reservation.save 
             render json: reservation
-            # render json: FreightQuoteSerializer.new(reservation)
+            # render json: ReservationSerializer.new(reservation)
         else 
             render json: {errors: reservation.errors.full_messages}, status: :unprocessible_entity
         end 
@@ -26,7 +26,7 @@ class ReservationsController < ApplicationController
         if reservation.destroy
             reservations = Reservation.all 
             render json: reservations
-            # render json: FreightQuoteSerializer.new(reservations)
+            # render json: ReservationSerializer.new(reservations)
         else
             render json: { message: "error"}  
         end 

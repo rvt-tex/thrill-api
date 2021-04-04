@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     def index 
         reviews = Review.all
         render json: reviews
-        # render json: quoteTypes, include: [:freight_quotes]
+        # render json: reviews, include: [:reservations]
     end     
 
 
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
         review = Review.new(review_params)
         if review.save 
             render json: review
-            # render json: FreightQuoteSerializer.new(review)
+            # render json: ReviewSerializer.new(review)
         else 
             render json: {errors: review.errors.full_messages}, status: :unprocessible_entity
         end 
@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
         if review.destroy
             reviews = Review.all 
             render json: reviews
-            # render json: FreightQuoteSerializer.new(reviews)
+            # render json: ReviewSerializer.new(reviews)
         else
             render json: { message: "error"}  
         end 
