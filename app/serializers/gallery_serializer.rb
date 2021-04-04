@@ -1,4 +1,4 @@
 class GallerySerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :img, :vid, :tour_id, :title
 end

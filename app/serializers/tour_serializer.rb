@@ -1,4 +1,4 @@
 class TourSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :title, :price, :duration, :description, :img
 end

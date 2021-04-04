@@ -1,4 +1,4 @@
 class ReviewSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :comment, :reservation_id, :client_id
 end
