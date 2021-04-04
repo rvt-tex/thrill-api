@@ -1,2 +1,6 @@
 class ToursController < ApplicationController
+
+
+
+    
 end
