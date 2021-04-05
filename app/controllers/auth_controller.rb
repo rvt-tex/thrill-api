@@ -5,7 +5,7 @@ class AuthController < ApplicationController
         client = Client.find_by(email: params[:email])
         if client && client.authenticate(params[:password])
             token = encode_token({client_id: client.id})
-            render json: { jwt: token}
+            render json: { jwt: token, client: client}
         else 
             render json: {error: "Incorrect email or password"}, status: :unauthorized 
         end 
