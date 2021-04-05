@@ -1,4 +1,5 @@
 class AuthController < ApplicationController
+    before_action :authorized, only: [:profile]
 
     def create 
         client = Client.find_by(email: params[:email])
@@ -8,5 +9,9 @@ class AuthController < ApplicationController
         else 
             render json: {error: "Incorrect email or password"}, status: :unauthorized 
         end 
+    end 
+
+    def profile
+        render json: @client
     end 
 end
