@@ -11,10 +11,11 @@ class ApplicationController < ActionController::API
     end 
 
     def decoded_token
+        # byebug
         if auth_header
         token = auth_header.split(" ")[1]
             begin
-                JWT.decode(token, ENV[JWT_SECRET])[0]
+                JWT.decode(token, ENV['JWT_SECRET'])[0]
             rescue JWT::DecodeError 
                nil
             end 
@@ -23,7 +24,7 @@ class ApplicationController < ActionController::API
 
     def current_client
         if decoded_token
-            client_id = decoded_token[0]['client_id']
+            client_id = decoded_token['client_id']
             @client = Client.find_by(id: client_id)
         end 
     end 
