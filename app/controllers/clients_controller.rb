@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+    before_action :authorized, except: [:create]
 
     def index
         clients = Client.all 

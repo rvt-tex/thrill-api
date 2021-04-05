@@ -4,7 +4,7 @@ class CreateTours < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :duration
       t.string :description
-      t.integer :price
+      t.string :price
       t.string :img
 
       t.timestamps

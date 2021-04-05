@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-
+    before_action :find_review, :authorized
 
     def index 
         reviews = Review.all
